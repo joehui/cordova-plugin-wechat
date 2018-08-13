@@ -34,11 +34,11 @@ static int const MAX_THUMBNAIL_SIZE = 320;
 - (void)share:(CDVInvokedUrlCommand *)command
 {
     // if not installed
-    if (![WXApi isWXAppInstalled])
-    {
-        [self failWithCallbackID:command.callbackId withMessage:@"未安装微信"];
-        return ;
-    }
+//    if (![WXApi isWXAppInstalled])
+//    {
+//        [self failWithCallbackID:command.callbackId withMessage:@"未安装微信"];
+//        return ;
+//    }
 
     // check arguments
     NSDictionary *params = [command.arguments objectAtIndex:0];
