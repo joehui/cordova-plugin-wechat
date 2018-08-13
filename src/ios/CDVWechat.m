@@ -17,18 +17,15 @@ static int const MAX_THUMBNAIL_SIZE = 320;
     // NSString* appId = [[self.commandDelegate settings] objectForKey:@"wechatappid"];
     NSString* appId = @"wxbf584ec77a6ec316";
     
-    UIAlertView *alert0 = [[UIAlertView alloc] initWithTitle:@"Wechat app id" message:appId delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
-    [alert0 show];
-
     if (appId && ![appId isEqualToString:self.wechatAppId]) {
         self.wechatAppId = appId;
         [WXApi registerApp: appId];
         
         NSLog(@"cordova-plugin-wechat has been initialized. Wechat SDK Version: %@. APP_ID: %@.", [WXApi getApiVersion], appId);
         
-        NSString *textMessage = [NSString stringWithFormat:@"cordova-plugin-wechat initialized. Wechat SDK Version: %@. APP_ID: %@.", [WXApi getApiVersion], appId];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wechat Initialized" message:textMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
-        [alert show];
+        // NSString *textMessage = [NSString stringWithFormat:@"cordova-plugin-wechat initialized. Wechat SDK Version: %@. APP_ID: %@.", [WXApi getApiVersion], appId];
+        // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wechat Initialized" message:textMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+        // [alert show];
     }
 }
 
@@ -42,11 +39,11 @@ static int const MAX_THUMBNAIL_SIZE = 320;
 - (void)share:(CDVInvokedUrlCommand *)command
 {
     // if not installed
-//    if (![WXApi isWXAppInstalled])
-//    {
-//        [self failWithCallbackID:command.callbackId withMessage:@"未安装微信"];
-//        return ;
-//    }
+    if (![WXApi isWXAppInstalled])
+    {
+        [self failWithCallbackID:command.callbackId withMessage:@"未安装微信"];
+        return ;
+    }
 
     // check arguments
     NSDictionary *params = [command.arguments objectAtIndex:0];
