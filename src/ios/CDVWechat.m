@@ -14,8 +14,9 @@ static int const MAX_THUMBNAIL_SIZE = 320;
 
 #pragma mark "API"
 - (void)pluginInitialize {
-    NSString* appId = [[self.commandDelegate settings] objectForKey:@"wechatappid"];
-
+    // NSString* appId = [[self.commandDelegate settings] objectForKey:@"wechatappid"];
+    NSString* appId = @"wxbf584ec77a6ec316";
+    
     UIAlertView *alert0 = [[UIAlertView alloc] initWithTitle:@"Wechat app id" message:appId delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
     [alert0 show];
     
