@@ -21,6 +21,10 @@ static int const MAX_THUMBNAIL_SIZE = 320;
         [WXApi registerApp: appId];
         
         NSLog(@"cordova-plugin-wechat has been initialized. Wechat SDK Version: %@. APP_ID: %@.", [WXApi getApiVersion], appId);
+        
+        NSString *textMessage = [NSString stringWithFormat:@"cordova-plugin-wechat initialized. Wechat SDK Version: %@. APP_ID: %@.", [WXApi getApiVersion], appId];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wechat Initialized" message:textMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+        [alert show];
     }
 }
 
